@@ -1,0 +1,61 @@
+<div class="project-modal" [class.active]="isOpen" *ngIf="project">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>{{ project.title }}</h3>
+            <button class="modal-close" (click)="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="splide" #splideElement>
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide" *ngFor="let image of project.images">
+                            <div class="slide-image-container">
+                                <img [src]="image.src" [alt]="image.alt" class="slide-image"
+                                    (click)="openFullscreen(image.src)">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-details mt-4">
+                <p><strong>Duration:</strong> {{ project.duration }}</p>
+
+                <div class="tech-stack">
+                    <h5>Technologies Used:</h5>
+                    <div class="tech-tags">
+                        <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+                    </div>
+                </div>
+
+                <h5 class="mt-4">Description:</h5>
+                <p class="project-description">{{ project.description }}</p>
+
+                <div class="achievements-section">
+                    <h5 class="mt-4">Key Features & Achievements:</h5>
+                    <div class="achievements-list">
+                        <div class="achievement-item" *ngFor="let achievement of project.achievements">
+                            <i class="fas fa-check-circle"></i>
+                            <span>{{ achievement }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a *ngIf="project.liveLink" [href]="project.liveLink" target="_blank" class="btn btn-custom">View Live</a>
+            <a *ngIf="project.githubLink" [href]="project.githubLink" target="_blank"
+                class="btn btn-outline-light ms-2">GitHub</a>
+        </div>
+    </div>
+</div>
+
+<!-- Fullscreen Image Modal -->
+<div class="fullscreen-modal" [class.active]="fullscreenImage">
+    <div class="close-fullscreen" (click)="closeFullscreen()">
+        <i class="fas fa-times"></i>
+    </div>
+    <img *ngIf="fullscreenImage" [src]="fullscreenImage" alt="Fullscreen image" class="fullscreen-image">
+</div>

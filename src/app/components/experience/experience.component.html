@@ -1,0 +1,44 @@
+<!-- Experience Section -->
+<section id="experience" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">Experience</h2>
+
+        <div class="experience-wrapper fade-in">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-company">
+                        <h4>MEAN Stack Developer</h4>
+                        <p>National Telecommunication Institute (NTI)</p>
+                    </div>
+                    <div class="experience-date">
+                        <span>Nov 2024</span>
+                    </div>
+                </div>
+                <div class="experience-body">
+                    <ul>
+                        <li>Developed skills in JavaScript, Node.js, Express.js, Angular, and MongoDB.</li>
+                        <li>Built practical applications and conducted requirement analysis.</li>
+                        <li>Focused on SEO, web security, UI/UX design, and project management.</li>
+                        <li>Enhanced productivity with AI tools and problem-solving techniques.</li>
+                        <li>Prepared for freelance opportunities with industry-relevant practices.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="certifications-title fade-in">Certifications</h3>
+        <div class="row justify-content-center fade-in">
+            <div *ngFor="let cert of certifications" class="col-md-6 col-lg-3 mb-4">
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i [class]="cert.icon"></i>
+                    </div>
+                    <div class="certification-details">
+                        <h5>{{ cert.name }}</h5>
+                        <p>{{ cert.issuer }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

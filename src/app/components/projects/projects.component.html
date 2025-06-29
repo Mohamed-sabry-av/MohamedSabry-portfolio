@@ -1,0 +1,28 @@
+<!-- Projects Section -->
+<section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-title fade-in">Projects</h2>
+        <div class="row">
+            <!-- Project Cards -->
+            <div *ngFor="let project of projects" class="col-md-6 col-lg-4 mb-4 fade-in">
+                <div class="project-card" (click)="openProjectModal(project.id)">
+                    <img [src]="project.images[0].src" [alt]="project.title" class="project-img">
+                    <div class="project-overlay">
+                        <h4 class="project-title">{{ project.title }}</h4>
+                        <p class="text-white">{{ project.subtitle }}</p>
+                        <div class="project-tech">
+                            <span *ngFor="let tech of project.technologies.slice(0, 3)" class="badge">{{ tech }}</span>
+                            <span *ngIf="project.technologies.length > 3" class="badge">+{{ project.technologies.length
+                                - 3 }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Modal -->
+<app-project-modal *ngIf="selectedProject" [project]="selectedProject" [isOpen]="isModalOpen"
+    (close)="closeProjectModal()">
+</app-project-modal>

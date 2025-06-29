@@ -1,0 +1,78 @@
+/* Header/Navbar */
+.navbar {
+  padding: 15px 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.navbar.scrolled {
+  background-color: var(--bg-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+}
+
+.nav-link {
+  font-weight: 500;
+  margin: 0 15px;
+  position: relative;
+  padding: 5px 0;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(30deg);
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+}
+
+.navbar-toggler i {
+  color: var(--text-color);
+}
+
+@media (max-width: 992px) {
+  .nav-link {
+    margin: 5px 0;
+  }
+  
+  .navbar-collapse {
+    background-color: var(--bg-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+}
