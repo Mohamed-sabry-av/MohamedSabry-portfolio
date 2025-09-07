@@ -9,6 +9,10 @@
   color: var(--secondary-color);
 }
 
+.email-text{
+  font-size:0.9rem
+}
+
 .about-content h4 {
   font-size: 1.3rem;
   font-weight: 600;
