@@ -1,4 +1,13 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Splide from '@splidejs/splide';
 
@@ -18,6 +27,9 @@ export interface Project {
   liveLink?: string;
   githubLink?: string;
   duration: string;
+  featured?: boolean;
+  teamMembers?: string[];
+  instructors?: string[];
 }
 
 @Component({
@@ -25,26 +37,27 @@ export interface Project {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './project-modal.component.html',
-  styleUrl: './project-modal.component.css'
+  styleUrl: './project-modal.component.css',
+  encapsulation: ViewEncapsulation.None,
 })
 export class ProjectModalComponent implements OnInit {
   @Input() project!: Project;
   @Input() isOpen = false;
   @Output() close = new EventEmitter<void>();
   @ViewChild('splideElement') splideElement!: ElementRef;
-  
+
   splide: Splide | null = null;
   fullscreenImage: string | null = null;
-  
+
   ngOnInit() {
     document.body.addEventListener('keydown', this.handleKeyDown.bind(this));
   }
-  
+
   ngOnDestroy() {
     document.body.removeEventListener('keydown', this.handleKeyDown.bind(this));
     this.destroySplide();
   }
-  
+
   ngOnChanges() {
     if (this.isOpen) {
       setTimeout(() => {
@@ -54,11 +67,11 @@ export class ProjectModalComponent implements OnInit {
       this.destroySplide();
     }
   }
-  
+
   closeModal() {
     this.close.emit();
   }
-  
+
   handleKeyDown(event: KeyboardEvent) {
     if (event.key === 'Escape') {
       if (this.fullscreenImage) {
@@ -68,7 +81,7 @@ export class ProjectModalComponent implements OnInit {
       }
     }
   }
-  
+
   initSplide() {
     if (this.splideElement && !this.splide) {
       this.splide = new Splide(this.splideElement.nativeElement, {
@@ -78,22 +91,22 @@ export class ProjectModalComponent implements OnInit {
         pagination: true,
         arrows: true,
         autoplay: false,
-        lazyLoad: 'nearby'
+        lazyLoad: 'nearby',
       }).mount();
     }
   }
-  
+
   destroySplide() {
     if (this.splide) {
       this.splide.destroy();
       this.splide = null;
     }
   }
-  
+
   openFullscreen(image: string) {
     this.fullscreenImage = image;
   }
-  
+
   closeFullscreen() {
     this.fullscreenImage = null;
   }

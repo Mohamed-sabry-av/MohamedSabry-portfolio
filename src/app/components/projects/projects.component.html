@@ -1,19 +1,51 @@
-<!-- Projects Section -->
+<!-- Modern Projects Section -->
 <section id="projects" class="section">
     <div class="container">
-        <h2 class="section-title fade-in">Projects</h2>
-        <div class="row">
+        <h2 class="section-title fade-in">Featured Projects</h2>
+        <p class="text-center text-secondary mb-5 fade-in">
+            Showcasing my best work and contributions
+        </p>
+
+        <div class="projects-grid">
             <!-- Project Cards -->
-            <div *ngFor="let project of projects" class="col-md-6 col-lg-4 mb-4 fade-in">
-                <div class="project-card" (click)="openProjectModal(project.id)">
-                    <img [src]="project.images[0].src" [alt]="project.title" class="project-img">
-                    <div class="project-overlay">
-                        <h4 class="project-title">{{ project.title }}</h4>
-                        <p class="text-white">{{ project.subtitle }}</p>
-                        <div class="project-tech">
-                            <span *ngFor="let tech of project.technologies.slice(0, 3)" class="badge">{{ tech }}</span>
-                            <span *ngIf="project.technologies.length > 3" class="badge">+{{ project.technologies.length
-                                - 3 }}</span>
+            <div *ngFor="let project of projects" class="project-card-wrapper fade-in"
+                [class.featured]="project.featured">
+                <div class="project-card glass-card" (click)="openProjectModal(project.id)">
+                    <div *ngIf="project.featured" class="featured-badge">
+                        <i class="fas fa-star me-1"></i>Featured
+                    </div>
+
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas" [ngClass]="project.featured ? 'fa-trophy' : 'fa-code'"></i>
+                        </div>
+                        <h3 class="project-title">{{ project.title }}</h3>
+                        <p class="project-subtitle">{{ project.subtitle }}</p>
+                    </div>
+
+                    <p class="project-description">{{ project.description | slice:0:150 }}...</p>
+
+                    <div class="project-tech">
+                        <span *ngFor="let tech of project.technologies.slice(0, 4)" class="tech-badge">
+                            {{ tech }}
+                        </span>
+                        <span *ngIf="project.technologies.length > 4" class="tech-badge more">
+                            +{{ project.technologies.length - 4 }} more
+                        </span>
+                    </div>
+
+                    <div class="project-footer">
+                        <span class="project-duration">
+                            <i class="fas fa-calendar me-2"></i>{{ project.duration }}
+                        </span>
+                        <div class="project-links">
+                            <a *ngIf="project.liveLink && project.liveLink !== '#'" [href]="project.liveLink"
+                                target="_blank" class="project-link" (click)="$event.stopPropagation()">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <button class="project-link view-more">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>

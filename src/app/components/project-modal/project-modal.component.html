@@ -1,13 +1,18 @@
-<div class="project-modal" [class.active]="isOpen" *ngIf="project">
-    <div class="modal-content">
+<div class="project-modal" [class.active]="isOpen" *ngIf="project" (click)="closeModal()"
+    [style.background-color]="'rgba(0, 0, 0, 0.85)'" [style.backdrop-filter]="'blur(5px)'">
+    <div class="modal-content" (click)="$event.stopPropagation()" [style.background-color]="'var(--bg-primary)'">
         <div class="modal-header">
-            <h3>{{ project.title }}</h3>
+            <div>
+                <h3>{{ project.title }}</h3>
+                <p class="text-secondary mb-0">{{ project.subtitle }}</p>
+            </div>
             <button class="modal-close" (click)="closeModal()">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <div class="modal-body">
-            <div class="splide" #splideElement>
+            <!-- Image Carousel - Only show if images exist -->
+            <div *ngIf="project.images && project.images.length > 0" class="splide" #splideElement>
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="splide__slide" *ngFor="let image of project.images">
@@ -22,6 +27,26 @@
 
             <div class="project-details mt-4">
                 <p><strong>Duration:</strong> {{ project.duration }}</p>
+
+                <!-- Team Members - Only for Bookify -->
+                <div *ngIf="project.teamMembers && project.teamMembers.length > 0" class="team-section mt-4">
+                    <h5><i class="fas fa-users me-2"></i>Team Members:</h5>
+                    <div class="team-grid">
+                        <span *ngFor="let member of project.teamMembers" class="team-badge">
+                            <i class="fas fa-user-circle me-1"></i>{{ member }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Instructors - Only for Bookify -->
+                <div *ngIf="project.instructors && project.instructors.length > 0" class="team-section mt-4">
+                    <h5><i class="fas fa-chalkboard-teacher me-2"></i>Instructors:</h5>
+                    <div class="team-grid">
+                        <span *ngFor="let instructor of project.instructors" class="team-badge instructor">
+                            <i class="fas fa-graduation-cap me-1"></i>{{ instructor }}
+                        </span>
+                    </div>
+                </div>
 
                 <div class="tech-stack">
                     <h5>Technologies Used:</h5>
@@ -45,16 +70,21 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a *ngIf="project.liveLink" [href]="project.liveLink" target="_blank" class="btn btn-custom">View Live</a>
-            <a *ngIf="project.githubLink" [href]="project.githubLink" target="_blank"
-                class="btn btn-outline-light ms-2">GitHub</a>
+            <a *ngIf="project.liveLink && project.liveLink !== '#'" [href]="project.liveLink" target="_blank"
+                class="btn btn-custom">
+                <i class="fas fa-external-link-alt me-2"></i>View Live
+            </a>
+            <a *ngIf="project.githubLink && project.githubLink !== '#'" [href]="project.githubLink" target="_blank"
+                class="btn btn-outline-light ms-2">
+                <i class="fab fa-github me-2"></i>GitHub
+            </a>
         </div>
     </div>
 </div>
 
 <!-- Fullscreen Image Modal -->
-<div class="fullscreen-modal" [class.active]="fullscreenImage">
-    <div class="close-fullscreen" (click)="closeFullscreen()">
+<div class="fullscreen-modal" [class.active]="fullscreenImage" (click)="closeFullscreen()">
+    <div class="close-fullscreen">
         <i class="fas fa-times"></i>
     </div>
     <img *ngIf="fullscreenImage" [src]="fullscreenImage" alt="Fullscreen image" class="fullscreen-image">

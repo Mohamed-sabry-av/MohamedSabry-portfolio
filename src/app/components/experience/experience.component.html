@@ -1,35 +1,58 @@
-<!-- Experience Section -->
+<!-- Modern Experience Section -->
 <section id="experience" class="section">
     <div class="container">
-        <h2 class="section-title fade-in">Experience</h2>
+        <h2 class="section-title fade-in">Experience & Training</h2>
+        <p class="text-center text-secondary mb-5 fade-in">
+            My professional journey and continuous learning path
+        </p>
 
-        <div class="experience-wrapper fade-in">
-            <div class="experience-card">
-                <div class="experience-header">
-                    <div class="experience-company">
-                        <h4>MEAN Stack Developer</h4>
-                        <p>National Telecommunication Institute (NTI)</p>
-                    </div>
-                    <div class="experience-date">
-                        <span>Nov 2024</span>
-                    </div>
+        <!-- Experience Timeline -->
+        <div class="experience-timeline fade-in">
+            <div *ngFor="let exp of experiences; let i = index" class="timeline-item"
+                [class.work-experience]="exp.type === 'work'" [class.training-experience]="exp.type === 'training'">
+
+                <div class="timeline-marker">
+                    <i class="fas" [ngClass]="exp.type === 'work' ? 'fa-briefcase' : 'fa-graduation-cap'"></i>
                 </div>
-                <div class="experience-body">
-                    <ul>
-                        <li>Developed skills in JavaScript, Node.js, Express.js, Angular, and MongoDB.</li>
-                        <li>Built practical applications and conducted requirement analysis.</li>
-                        <li>Focused on SEO, web security, UI/UX design, and project management.</li>
-                        <li>Enhanced productivity with AI tools and problem-solving techniques.</li>
-                        <li>Prepared for freelance opportunities with industry-relevant practices.</li>
+
+                <div class="timeline-content glass-card">
+                    <div class="timeline-header">
+                        <div class="timeline-title-group">
+                            <h3 class="timeline-title">{{ exp.title }}</h3>
+                            <p class="timeline-company">
+                                <i class="fas fa-building me-2"></i>{{ exp.company }}
+                            </p>
+                            <p class="timeline-location">
+                                <i class="fas fa-map-marker-alt me-2"></i>{{ exp.location }}
+                            </p>
+                        </div>
+                        <div class="timeline-period">
+                            <span class="period-badge" [class.current]="exp.current">
+                                <i class="fas fa-calendar-alt me-2"></i>{{ exp.period }}
+                            </span>
+                            <span *ngIf="exp.current" class="current-badge">
+                                <span class="pulse-dot"></span>
+                                Currently Working
+                            </span>
+                        </div>
+                    </div>
+
+                    <ul class="timeline-responsibilities">
+                        <li *ngFor="let responsibility of exp.responsibilities">
+                            <i class="fas fa-check-circle me-2"></i>{{ responsibility }}
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <h3 class="certifications-title fade-in">Certifications</h3>
-        <div class="row justify-content-center fade-in">
-            <div *ngFor="let cert of certifications" class="col-md-6 col-lg-3 mb-4">
-                <div class="certification-card">
+        <!-- Certifications -->
+        <div class="certifications-section mt-5">
+            <h3 class="certifications-title text-center mb-4 fade-in">
+                <i class="fas fa-certificate me-2"></i>Certifications
+            </h3>
+            <div class="certifications-grid fade-in">
+                <div *ngFor="let cert of certifications" class="certification-card glass-card">
                     <div class="certification-icon">
                         <i [class]="cert.icon"></i>
                     </div>

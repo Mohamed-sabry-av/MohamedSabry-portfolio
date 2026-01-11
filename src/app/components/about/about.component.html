@@ -1,58 +1,107 @@
-<!-- About Section -->
+<!-- Modern About Section -->
 <section id="about" class="section">
     <div class="container">
         <h2 class="section-title fade-in">About Me</h2>
-        <div class="row align-items-center">
-            <div class="col-lg-5 mb-4 mb-lg-0 fade-in">
-                <div class="about-image">
-                    <img src="assets/img/about.jpg" alt="Mohamed Sabry" class="img-fluid rounded">
+        <p class="text-center text-secondary mb-5 fade-in">
+            Get to know more about my background, education, and expertise
+        </p>
+
+        <div class="row align-items-start g-4">
+            <!-- Professional Summary -->
+            <div class="col-lg-12 fade-in">
+                <div class="about-card glass-card">
+                    <h3 class="card-title gradient-text">
+                        <i class="fas fa-user-tie me-2"></i>Professional Summary
+                    </h3>
+                    <p class="lead">
+                        Full-Stack Developer with <strong>2 years of experience</strong> in building scalable web
+                        applications
+                        using Node.js, Express.js, Angular, React, and Next.js.
+                    </p>
+                    <p>
+                        Skilled in secure APIs, real-time features, and SQL/NoSQL databases. Also served as a
+                        <strong>Session Lead at Udacity</strong>, supporting learners and delivering a high-quality,
+                        customer-focused learning experience.
+                    </p>
+                    <p>
+                        Currently working as a <strong>Junior Full-Stack Developer at Worex</strong>, developing and
+                        maintaining
+                        full-stack web applications while collaborating with cross-functional teams using Agile/Scrum
+                        methodologies.
+                    </p>
                 </div>
             </div>
-            <div class="col-lg-7 fade-in">
-                <div class="about-content">
-                    <h3>Mohamed Sabry</h3>
-                    <h4>Full-stack Developer</h4>
-                    <p>
-                        I am a passionate Full-stack Developer with expertise in building modern web applications using
-                        cutting-edge technologies.
-                        With a strong foundation in both front-end and back-end development, I create seamless,
-                        user-friendly applications that deliver exceptional experiences.
-                    </p>
-                    <p>
-                        My technical expertise includes Angular, React, Node.js, Express, MongoDB, and various other
-                        modern frameworks and tools.
-                        I am committed to writing clean, maintainable code and staying up-to-date with the latest
-                        industry trends and best practices.
-                    </p>
-                    <div class="about-info">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="info-item">
-                                    <span>Name:</span> Mohamed Sabry
-                                </div>
-                                <div class="info-item">
-                                    <span>Email:</span> <span class="email-text">{{email}}</span>
-                                </div>
-                                <div class="info-item">
-                                    <span>Phone:</span> +2 0106 243 9552 
-                                </div>
+
+            <!-- Contact Info -->
+            <div class="col-lg-6 fade-in">
+                <div class="about-card glass-card">
+                    <h3 class="card-title gradient-text">
+                        <i class="fas fa-address-card me-2"></i>Contact Information
+                    </h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>{{ email }}</p>
                             </div>
-                            <div class="col-md-6">
-                                <div class="info-item">
-                                    <span>Location:</span> Cairo, Egypt
-                                </div>
-                                <div class="info-item">
-                                    <span>Experience:</span> 1+ Years
-                                </div>
-                                <div class="info-item">
-                                    <span>Freelance:</span> Available
-                                </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>{{ phone }}</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Location</strong>
+                                <p>{{ location }}</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <strong>LinkedIn</strong>
+                                <p><a href="https://linkedin.com/in/mohamed-sabry200/"
+                                        target="_blank">mohamed-sabry200</a></p>
                             </div>
                         </div>
                     </div>
-                    <div class="about-buttons mt-4">
-                        <a href="https://drive.google.com/file/d/1ClXnsW5zFT92l6OhkiSTClgz1l1hxsSV/view?usp=sharing" class="btn btn-custom">Download CV</a>
-                        <a href="#contact" class="btn btn-outline-light ms-3">Contact Me</a>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="col-lg-6 fade-in">
+                <div class="about-card glass-card">
+                    <h3 class="card-title gradient-text">
+                        <i class="fas fa-graduation-cap me-2"></i>Education
+                    </h3>
+                    <div class="education-list">
+                        <div *ngFor="let edu of education" class="education-item">
+                            <h5>{{ edu.degree }}</h5>
+                            <p class="institution">{{ edu.institution }}</p>
+                            <span class="period-badge">{{ edu.period }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="col-lg-12 fade-in">
+                <div class="about-card glass-card">
+                    <h3 class="card-title gradient-text text-center">
+                        <i class="fas fa-language me-2"></i>Languages
+                    </h3>
+                    <div class="languages-grid">
+                        <div *ngFor="let lang of languages" class="language-item">
+                            <div class="language-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h5>{{ lang.name }}</h5>
+                            <p>{{ lang.level }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
