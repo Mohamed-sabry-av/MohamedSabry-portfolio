@@ -18,50 +18,47 @@ export class ProjectsComponent {
 
   projects: Project[] = [
     {
-      id: 'bookify',
-      title: 'Bookify - Comprehensive Travel Booking Platform',
-      subtitle: 'Graduation Project (Team Leader)',
-      description:
-        'Bookify is a comprehensive travel booking platform designed to streamline the experience of planning a trip. Unlike traditional platforms that fragment the experience, Bookify unifies Hotel Reservations and Flight Bookings into a single, seamless interface. Built as a graduation project at National Telecommunication Institute (NTI) with a team of 5 talented developers.',
-      technologies: [
-        'React (Vite)',
-        'Next.js (App Router)',
-        'TypeScript',
-        'Tailwind CSS',
-        'Redux Toolkit',
-        'Framer Motion',
-        'ApexCharts',
-        'FullCalendar',
-        'Node.js',
-        'Express',
-        'MongoDB',
-        'Mongoose',
-        'Socket.io',
-        'JWT Authentication',
-        'Stripe',
-        'Docker',
-        'Nginx',
-      ],
+      id: 'ecommerce-stripe',
+      title: 'E-commerce Platform with Stripe Integration',
+      subtitle: 'E-Commerce Backend',
+      description: 'A scalable Node.js/Express backend with MVC architecture for a secure e-commerce system. Features comprehensive payment processing, real-time updates, and robust security measures.',
+      technologies: ['Node.js', 'Express.js', 'PostgreSQL', 'JWT', 'Stripe API', 'Socket.IO', 'RESTful API', 'Session Management'],
       achievements: [
-        '🏆 Team Leadership: Led a team of 5 developers, managing task distribution, follow-up, and collaboration',
-        '🎯 User Platform: Built a responsive, high-performance interface for travelers to search, filter, and book stays and flights',
-        '📊 Admin Dashboard: Developed a powerful control center with data visualization for revenue and trends using ApexCharts',
-        '💬 Real-Time Support: Integrated chat booking support connecting users directly with admins using Socket.io',
-        '🔒 Security: Implemented JWT Authentication for secure user sessions',
-        '💳 Payments: Integrated Stripe Payment system for seamless transactions',
-        '🏗️ Architecture: Applied Clean Architecture patterns for maintainable and scalable codebase',
-        '🐳 DevOps: Containerized application using Docker and deployed with Nginx',
-        '⚡ Performance: Optimized for fast loading and smooth user experience',
-        '📱 Responsive Design: Fully responsive across all devices',
-        '🎨 Modern UI: Beautiful interface with Framer Motion animations',
-        '📈 Analytics: Comprehensive data visualization for business insights',
+        'Developed a scalable Node.js/Express backend with MVC architecture for a secure e-commerce system',
+        'Implemented JWT authentication with role-based access control and secure session & CORS management',
+        'Engineered RESTful APIs for product, user, and cart management with real-time cart updates using Socket.IO',
+        'Integrated Stripe payment gateway with webhook handling for seamless and secure payment processing',
+        'Applied error handling, input validation, and modular middleware for robust backend performance'
       ],
-      images: [],
-      liveLink: 'https://bookify-react.vercel.app/',
+      images: [
+        { src: 'assets/img/projects/ecommerce-stripe/digram.png', alt: 'API Documentation' },
+        { src: 'assets/img/projects/ecommerce-stripe/diagram-export-9-7-2025-6_06_53-PM.png', alt: 'Stripe Integration' },
+        { src: 'assets/img/projects/ecommerce-stripe/database-schema.png', alt: 'Database Schema' },
+        { src: 'assets/img/projects/ecommerce-stripe/system-architecture.png', alt: 'System Architecture' }
+      ],
       githubLink: '#',
-      duration: 'October 2025 – January 2026',
-      featured: true,
-      
+      duration: 'Sep 2025'
+    },
+    {
+      id: 'realstate',
+      title: 'RealState',
+      subtitle: 'Real Estate Platform',
+      description: 'A comprehensive real estate platform featuring interactive property listings, real-time chat, and secure payment processing. Built with modern web technologies for optimal user experience.',
+      technologies: ['Angular', 'SCSS', 'TypeScript', 'Node.js', 'Express.js', 'WebSocket', 'MongoDB', 'RESTful APIs'],
+      achievements: [
+        'User property submission and detailed listing management',
+        'Interactive map view displaying all property locations for easy navigation',
+        'In-app property purchase functionality using Stripe',
+        'Real-time chat system using WebSocket technology, supported by a robust backend',
+        'Strong authentication and authorization system to secure user data and actions'
+      ],
+      images: [
+        { src: 'assets/img/projects/real-state/Screenshot 2025-08-20 060124.png', alt: 'RealState Screenshot 1' },
+        { src: 'assets/img/projects/real-state/Screenshot 2025-08-20 060236.png', alt: 'RealState Screenshot 2' }
+      ],
+      liveLink: '#',
+      githubLink: '#',
+      duration: 'Aug 2025'
     },
     {
       id: 'adventures-hub',
@@ -118,7 +115,46 @@ export class ProjectsComponent {
       ],
       liveLink: 'https://adventures-hub.com/',
       githubLink: '#',
-      duration: 'February 2025 – September 2025',
+      duration: 'Jun 2025'
+    },
+    {
+      id: 'weather-api',
+      title: 'Weather API Wrapper Service',
+      subtitle: 'API Service',
+      description: 'A Node.js backend service wrapping the Visual Crossing Weather API with performance optimization through caching and robust error handling.',
+      technologies: ['Node.js', 'Express', 'node-cache', 'Axios'],
+      achievements: [
+        'Built a Node.js backend service wrapping the Visual Crossing Weather API',
+        'Implemented in-memory caching to optimize performance and reduce redundant external API calls',
+        'Designed robust error handling and environment variable management for secure API keys'
+      ],
+      images: [
+        { src: 'assets/img/projects/weather-api/1.png', alt: 'Weather API Documentation' },
+        { src: 'assets/img/projects/weather-api/2.png', alt: 'Caching System Flow' },      ],
+      githubLink: '#',
+      duration: 'Apr 2025'
+    },
+    {
+      id: 'todo-app',
+      title: 'Full-Stack ToDo Application',
+      subtitle: 'Task Management System',
+      description: 'A modern, full-stack task management application built with React (Vite) and Node.js. Features a clean, responsive interface with real-time updates and secure user authentication.',
+      technologies: ['React', 'Vite', 'Node.js', 'Express.js', 'SQL Database', 'JWT', 'ES6+', 'CSS'],
+      achievements: [
+        'Implemented complete CRUD operations for task management with real-time updates',
+        'Built a secure authentication system with JWT for user data protection',
+        'Designed a clean and intuitive user interface using modern CSS techniques',
+        'Created a scalable backend architecture with Express.js and SQL database',
+        'Applied best practices in project structure and code organization',
+        'Implemented error handling and input validation on both frontend and backend'
+      ],
+      images: [
+        { src: 'assets/img/projects/todo-app/todo-list-api-bsrdd.png', alt: 'ToDo Dashboard' },
+        { src: 'assets/img/projects/todo-app/task-management.png', alt: 'Task Management' },
+        { src: 'assets/img/projects/todo-app/authentication.png', alt: 'Authentication Screen' }
+      ],
+      githubLink: 'https://github.com/Mohamed-sabry-av/ToDoApp',
+      duration: 'Mar 2025'
     },
     {
       id: 'ecommerce-stripe',

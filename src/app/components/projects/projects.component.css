@@ -46,9 +46,8 @@
   z-index: 1;
 }
 
-/* Project Header */
-.project-header {
-  margin-bottom: 1.5rem;
+.project-card:hover .project-img {
+  /* transform: scale(1.1); */
 }
 
 .project-icon {

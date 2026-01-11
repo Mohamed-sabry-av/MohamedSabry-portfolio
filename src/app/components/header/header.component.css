@@ -16,31 +16,21 @@
 }
 
 .navbar-brand {
-  font-weight: 800;
-  font-size: 1.5rem;
-  font-family: "Space Grotesk", sans-serif;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--secondary-color);
   display: flex;
   align-items: center;
-  transition: all 0.3s ease;
-}
-
-.navbar-brand:hover {
-  transform: scale(1.05);
 }
 
 .logo {
-  height: 60px;
+  height: 140px;
   width: auto;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
 }
 
 .navbar.scrolled .logo {
-  height: 50px;
+  height: 80px;
 }
 
 .nav-link {
@@ -129,21 +119,13 @@
   }
 
   .navbar-collapse {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--glass-border);
-    margin-top: 15px;
+    background-color: var(--bg-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
-
+  
   .logo {
-    height: 50px;
-  }
-
-  .theme-toggle {
-    margin: 10px 0;
-    width: 100%;
+    height: 80px;
   }
 }
